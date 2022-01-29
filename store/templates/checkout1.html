@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+
+
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="bold">
+			<i class="glyphicon glyphicon-pencil"></i> Delivery Information(Payment is On Delivery)
+		</h3>
+
+	<div class="panel panel-primary">
+		<div class="panel-body">
+		<form action="/check-out" method="POST">
+                
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<h4 class="bold">Personal Information(Payment is On Delivery)</h4>
+					</div>
+					{% csrf_token %}
+                	<div class="form-group">
+                		  <label for=""><h5 class="bold">Address For Delivery</h5></label>
+                		  <input type="text" name="address" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                  
+            			    </div>
+           			     <div class="form-group">
+            			        <label for=""><h6  class="bold">Phone(For communication)</h6></label>
+			                    <input type="text" name="phone" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                			  </div>
+                		
+                  <input type="submit" class="btn btn-primary btn-sm btn float-right btn-outline-info col-lg-6" value="Make Order">
+            </form>
+		</div>
+	</div>
+	</div>
+	<div class="panel-body">
+		
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Benefits</h3>
+			</div>
+			<div class="panel-body">
+				Some of the benefits of shopping with us include:
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item">Buyer Protection</li>
+				<li class="list-group-item">Delivery within 24 hours</li>
+				<li class="list-group-item">Payment On Delivery</li>
+				<li class="list-group-item">Our Products Carry Gurantee of a Week</li>
+				<li class="list-group-item">No money back Gurantee</li>
+			</ul>
+		</div>
+	</div>
+
+	
+</div>
+<div role="tabpanel">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active">
+					<a href="#categories" aria-controls="categories" role="tab" data-toggle="tab" class="bold btn btn-primary">Categories</a>
+				</li>
+				<li role="presentation">
+					<a href="#brands" aria-controls="brands" role="tab" data-toggle="tab" class="bold btn btn-primary">Brands</a>
+				</li>
+			</ul>
+		
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="categories">
+					<h3 class="bold">Categories</h3>
+					<div class="container">
+<div class="row">
+	<div class="col-lg-12">
+		<ol class="breadcrumb">
+<p>
+        				{% for category in categories %}               
+                            <a href="/?category={{category.id}}" class="btn btn-primary my-2 my-sm-0"><i class="glyphicon glyphicon-chevron-left"></i> {{ category.name }} </a>
+                        {% endfor %}
+</p>
+		</ol>
+	</div>
+</div>
+</div>
+
+
+				</div>
+				<div role="tabpanel" class="tab-pane" id="brands">
+					<h3 class="bold">Brands</h3>
+					<div class="container">
+<div class="row">
+	<div class="col-lg-12">
+		<ol class="breadcrumb">
+<p>
+        				{% for brand in brands %}               
+                            <a href="/?brand={{brand.id}}" class="btn btn-primary my-2 my-sm-0"><i class="glyphicon glyphicon-chevron-left"></i> {{ brand.name }} </a>
+                        {% endfor %}
+</p>
+		</ol>
+	</div>
+</div>
+</div>
+
+</div>
+			</div>
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active">
+					<a href="#categories" aria-controls="categories" role="tab" data-toggle="tab" class="bold btn btn-primary">Categories</a>
+				</li>
+				<li role="presentation">
+					<a href="#brands" aria-controls="brands" role="tab" data-toggle="tab" class="bold btn btn-primary">Brands</a>
+				</li>
+			</ul>
+		</div>
+
+
+{% endblock %}

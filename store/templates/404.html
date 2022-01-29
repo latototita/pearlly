@@ -1,0 +1,25 @@
+{% extend 'base.html' %}
+{% load static %}
+{% load cart %}
+{% load custom_filter %}
+{% block body %}
+
+<div class="row">
+   <div class="col-lg-12"> 
+    <div class="container">
+            <div class="thumbnail">
+
+                    <img src="{% static 'imgs/404.jpg' %}" style="width: 100%;">
+                    <div class="carousel-caption">
+                            <a href=""><h1>404 error page</h1></a>
+                            <p>Oops wrong page,The page you requested is either not there or we must have an error on our side please bear with us. we will get it fixed wright a way.</p><p class="btn btn-primary my-2 my-sm-0">Back To STORE<a href="{% url 'store' %}" class="btn btn-primary my-2 my-sm-0 glyphicon glyphicon-chevron-right"></a>
+</p>
+                    </div>
+                
+                
+        </div>
+                
+    </div>
+                
+</div> 
+{% endblock %}
