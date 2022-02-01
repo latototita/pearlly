@@ -130,7 +130,7 @@ def homepage(request):
     computers=Product.get_all_products_by_categoryid(6)
 
 
-    paginator1=Paginator(top_rated,2)
+    paginator1=Paginator(top_rated,6)
     paginator2=Paginator(featured,6)
     paginator3=Paginator(best_selling,6)
     paginator4=Paginator(electronics,6)
