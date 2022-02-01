@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from django.urls import path
 from .views.home import Index , store,search,homepage
 from .views.signup import signup
@@ -8,8 +9,29 @@ from .views.checkout import checkout
 from .views.orders import orders,delete
 from .middlewares.auth import  auth_middleware
 from django.contrib.auth import views as auth_views
+from store.views.views import (
+    PostListView,
+    PostDetailView,
+    PostCreateView,
+    PostUpdateView,
+    PostDeleteView,
+    UserPostListView,
+    add_comment,about
+)
+
+
+
+
 
 urlpatterns = [
+    path('blog/', PostListView.as_view(), name='index'),
+    path('user/<str:username>/', UserPostListView.as_view(), name='user_posts'),
+    path('post/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
+    path('post/new/', PostCreateView.as_view(), name='post_create'),
+    path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post_update'),
+    path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post_delete'),
+    path('about/', about, name='about'),
+    path('post/<int:pk>/comment/', add_comment, name='add_comment'),
     path('', Index.as_view(), name='homepage'),
     path('store/', store , name='store'),
     path('homepage/', homepage , name='home'),

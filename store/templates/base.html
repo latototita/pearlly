@@ -36,40 +36,45 @@
                         
                         <li >
                             <a href="/lart">
-                                <i class="glyphicon glyphicon-shopping-cart"></i> Cart({{request.session.cart.keys|length}})
+                                <i class="glyphicon glyphicon-shopping-cart"> Cart({{request.session.cart.keys|length}})</i>
                             </a>
                         </li>
                         <li >
                             <a href="/store">
-                                <i class="glyphicon glyphicon-chevron-right"></i> Store
+                                <i class="glyphicon glyphicon-flash"> Store</i>
                             </a>
                         </li>
                         
                         <li >
                             <a href="/homepage">
-                                <i class="glyphicon glyphicon-home"></i>Home Page
+                                <i class="glyphicon glyphicon-home"> Home Page</i>
                             </a>
                         </li>
                         <li >
                             <a href="/checkout1">
-                                <i class="glyphicon glyphicon-send"></i>Make Order
+                                <i class="glyphicon glyphicon-send"> Order Now</i>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="/blog">
+                                <i class="glyphicon glyphicon-new-window"> Blog</i>
                             </a>
                         </li>
                         {% if user.is_authenticated %}
         
         <li >
-          <a href="/orders">Orders<span class="sr-only">(current)</span></a>
+          <a href="/orders"><i class="glyphicon glyphicon-check" > Orders</i></span></a>
         </li>
         <li >
-          <a href="/logout">LogOut<span class="sr-only">(current)</span></a>
+          <a href="/logout"><i class="glyphicon glyphicon-log-out"> SignOut</i></a>
         </li>
         
        {% else %}
         <li >
-          <a href="/signup">SignUp<span class="sr-only">(current)</span></a>
+          <a href="/signup"><i class="glyphicon glyphicon-user"> SignUp</i></a>
         </li>
         <li >
-          <a  href="/login">LogIn<span class="sr-only">(current)</span></a>
+          <a  href="/login"><i class="glyphicon glyphicon-log-in"> SignIn</i></a>
         </li>
         {% endif %}
                     </ul>
@@ -194,34 +199,7 @@
 {% include 'messages.html' %}
         {% block body %}
         {% endblock %}
-        {% if admin %}
-        <footer>
-                <div class="row pad">
-                    <div class="col-lg-12 text-center">
-                        <strong> PEARLMART STORES</strong>
-                    </div>
-                </div>
-                <div class="col-lg-12 text-center">
-                        <strong><i>Shop For Anything And EveryThing You Want Right</i><b> HERE </b></strong>
-                    </div>
-                
-                <div class="row pad">
-                    <div class="col-lg-12 text-center">
-                        Copyright &copy; 2022<strong> <i>Under</i><b> PEARL GROUP</b><i>Number 1 Businesses Group In Uganda</i></strong>
-                    </div>
-                </div>
-            </footer>
-        </div>
-
-        <!-- jQuery -->
-        <script src="{% static 'bs/js/jquery.min.js' %}"></script>
-        <!-- Bootstrap JavaScript -->
-        <script src="{% static 'bs/js/bootstrap.min.js' %}"></script>
-
-    </body>
-</html>
-        {% else %}
-
+       
 
 <div class="row">
     <div class="col-lg-12">
@@ -304,4 +282,3 @@
 
     </body>
 </html>
-{% endif %}
